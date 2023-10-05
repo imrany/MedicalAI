@@ -12,15 +12,6 @@ const password=ref("")
 const confirm=ref("")
 const isLoading=ref(false)
 const wait=ref("")
-let date=new Date()
-let newObj = Intl.DateTimeFormat('en-US', {
-    timeZone: "America/New_York"
-})
-let newDate = newObj.format(date);
-let min=date.getMinutes()<10?`0${date.getMinutes()}`:`${date.getMinutes()}`
-let time=date.getHours()>12?`${date.getHours()}:${min}PM`:`${date.getHours()}:${min}AM`
-const lastLogin=`${newDate} ${time}`;
-const platform=navigator.platform
 
 const handleSubmit=async(e:any)=>{
     e.preventDefault()
@@ -40,11 +31,10 @@ const handleSubmit=async(e:any)=>{
                     "content-type":"application/json"
                 },
                 body:JSON.stringify({
+                    id:`${Math.random()}`,
                     email:route.query.email,
                     username:username.value,
-                    password:confirm.value,
-                    lastLogin,
-                    userPlatform:platform
+                    password:confirm.value
                 })
             })
            const parseRes=await response.json()

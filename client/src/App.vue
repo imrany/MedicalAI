@@ -6,7 +6,6 @@ type Userdata={
   username: string, 
   email:string, 
   photo: any,
-  privacy:boolean,
   token:string
 }
 

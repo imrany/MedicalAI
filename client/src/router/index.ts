@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LandingView from '../views/LandingView.vue'
+import { useToast } from "vue-toast-notification";
+const toast=useToast()
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -95,7 +97,10 @@ router.beforeEach((to,from,next)=>{
   if(!isRequiredAuth&&isUserAuthenticated!==null){
     next("/home")
   }else if(isRequiredAuth&&isUserAuthenticated===null){
-    alert("Not Authenticated!!")
+    toast.info("Not Authenticated!!",{
+      position:"top-right",
+      duration:5000,
+    })
     next("/")
   }else{
     next()
