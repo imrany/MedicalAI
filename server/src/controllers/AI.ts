@@ -1,19 +1,14 @@
-const brain =require('brain.js');
-const data=require('../db/data.json');
-const checker=require('../db/checker.json');
-const request = require('request');
+import * as brain from 'brain.js';
+import * as natural from 'natural';
+import data from '../../db/data.json';
+import checker from '../../db/checker.json';
+import request from 'request';
 const network= new brain.recurrent.LSTM();
-const network2= new brain.recurrent.LSTM();
-require('dotenv').config();
+const classifier = new natural.BayesClassifier();
 
 //Training checker data
-const trainingcheckerData=checker.map(item=>({
-    input: item.sign,
-    output: item.output
-}));
-network2.train(trainingcheckerData,{
-    iterations:100,
-});
+checker.forEach((data:any) => classifier.addDocument(data.sign, data.output));
+classifier.train();;
 
 //training health data
 const trainingData=data.map(item=>({
@@ -22,13 +17,14 @@ const trainingData=data.map(item=>({
 }));
 network.train(trainingData,{
     iterations:100,
+    errorThresh: 0.01 
 });
 
-const Ask=async(req,res)=>{
+export async function ask(req:any,res:any){
     try {
         const {prompt}=req.body;
-        const checkedData=network2.run(prompt)
-        if(checkedData==1){
+        const checkedData:any = classifier.classify(prompt);
+        if(checkedData===1){
             const output=network.run(prompt);
             //google search the output
             let options = {
@@ -46,7 +42,7 @@ const Ask=async(req,res)=>{
                 })
                 
             };
-            request(options, (error, response) => {
+            request(options, (error:any, response:any) => {
                 if (error) {
                     res.status(404).send({msg:error.message})
                 }else{
@@ -59,7 +55,6 @@ const Ask=async(req,res)=>{
         }else{
             res.status(400).send({
                 error:"Cannot generate response!",
-                msg:'Enter a valid illness sign or symptom!',
             })
         }
        
@@ -67,11 +62,6 @@ const Ask=async(req,res)=>{
         console.log(error.message)
         res.status(400).send({
             error:error.message,
-            msg:'Try again!',
         })
     }
-}
-
-module.exports={
-    Ask,
 }

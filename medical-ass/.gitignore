@@ -1,5 +1,0 @@
-#node mudules
-node_modules
-
-#enviroment variables
-.env 
