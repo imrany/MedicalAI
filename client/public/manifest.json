@@ -1,0 +1,95 @@
+{
+    "short_name":"Wekafile",
+    "name":"Wekafile",
+    "description":"Manage and share your files.",
+    "start_url":"/",
+    "id":"/",
+    "background_color":"#FFFF",
+    "theme_color":"#FFFF",
+    "orientation":"portrait-primary",
+    "display":"standalone",
+    "icons":[
+      {
+      "src":"/icons/favicon-72x72.png",
+      "type":"image/png",
+      "sizes":"72x72",
+      "purpose": "maskable"
+      },
+      {
+        "src":"/icons/favicon-96x96.png",
+        "type":"image/png",
+        "sizes":"96x96",
+        "purpose": "any"
+      },
+      {
+       "src":"/icons/favicon-128x128.png",
+       "type":"image/png",
+       "sizes":"128x128",
+       "purpose": "any"
+      },
+     {
+      "src":"/icons/favicon-144x144.png",
+      "type":"image/png",
+      "sizes":"144x144",
+      "purpose": "maskable"
+      },
+      {
+      "src":"/icons/favicon-152x152.png",
+      "type":"image/png",
+      "sizes":"152x152",
+      "purpose": "maskable"
+      },
+      {
+      "src":"/icons/favicon-192x192.png",
+      "type":"image/png",
+      "sizes":"192x192",
+      "purpose": "maskable"
+      },
+      {
+        "src":"/icons/favicon-256x256.png",
+        "type":"image/png",
+        "sizes":"256x256",
+        "purpose": "maskable"
+      },
+      {
+      "src":"/icons/favicon-384x384.png",
+      "type":"image/png",
+      "sizes":"384x384",
+      "purpose": "maskable"
+      },
+      {
+       "src":"/icons/favicon-512x512.png",
+       "type":"image/png",
+       "sizes":"512x512",
+       "purpose": "any"
+      }
+    ],
+    "share_target": {
+      "action": "/share",
+      "method": "POST",
+      "enctype": "multipart/form-data",
+      "params": {
+        "title": "title",
+        "text": "text",
+        "url": "url",
+        "files": [
+          {
+            "name": "list",
+            "accept": ["text/csv", ".csv"]
+          },
+          {
+            "name": "photos",
+            "accept": ["image/svg+xml", ".svg", "image/png", "image/jpg", "image/jpeg"]
+          },
+          {
+            "name":"video",
+            "accept":["video/mp4"]
+          },
+          {
+            "name":"audio",
+            "accept":["audio/mp3", ".mp3"]
+          }
+        ]
+      }
+    }
+  }
