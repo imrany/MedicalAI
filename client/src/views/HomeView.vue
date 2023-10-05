@@ -1,8 +1,5 @@
 <script lang="ts" setup>
-    import Table from "../components/ui/Table.vue"
     import LayoutGrid from "../components/LayoutGrid.vue"
-   
-   
 </script>
 
 <template>

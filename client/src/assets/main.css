@@ -24,6 +24,11 @@ dialog[open]{
 #file-tabs,#nav-title{
     display: none;
 }
+.hero-image{
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url('./images/download.gif') no-repeat center;
+    background-size: cover;
+    height: 100vh;
+}
 /*preloader*/
 .preload{
     background: white url('./images/Loading_icon.gif') no-repeat center;

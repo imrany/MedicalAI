@@ -1,15 +1,22 @@
 import express from "express"
-import * as dotenv from "dotenv"
+import { config } from "dotenv"
 import cors from "cors"
-dotenv.config()
+import router from "./routes/api"
+config()
 
-const app=express()
+const cors_option = {
+    origin:["http://localhost:3001"],
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PATCH", "PUT"]
+}
 
-app.use(cors({}))
+const app =express()
+app.use(cors(cors_option))
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
+app.use("/api",router)
 
-const port=process.env.PORT||8000
+
+const port=process.env.PORT||8080
 app.listen(port,()=>{
-    console.log(`server running port ${port}`)
+    console.log(`Server running on port ${port}`)
 })

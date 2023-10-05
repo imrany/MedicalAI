@@ -26,7 +26,7 @@ function getStatus(){
 <template>
   <div class="flex min-h-[100vh]">
     <div v-if="userdata" class="md:w-[15%] fixed bg-gray-100 top-0 bottom-0 shadow-sm left-0 px-4 pt-[8px] pb-5 text-gray-600" id="sideshow">
-      <RouterLink to="/" class="font-bold text-2xl pr-8 pl-3 text-[#2ad855]">
+      <RouterLink to="/" class="font-bold text-2xl pr-8 pl-3 text-gray-800">
         MedicalAI
       </RouterLink>
       <div class="flex flex-col w-full mt-8">

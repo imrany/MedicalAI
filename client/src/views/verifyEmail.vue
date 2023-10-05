@@ -57,7 +57,7 @@
                 </div>
             </form>
             <p class="text-sm max-md:text-xs text-gray-500">Enter the verification code sent to the email your previously entered.</p>
-            <RouterLink class="text-[#e9972c] font-semibold mt-10" to="/signin">Log in instead?</RouterLink>
+            <RouterLink class="text-gray-700 font-semibold mt-10" to="/signin">Log in instead?</RouterLink>
         </div>
     </div>
 </template>
