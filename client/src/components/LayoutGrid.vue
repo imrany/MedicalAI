@@ -20,6 +20,7 @@ function getStatus(){
     status.value.message="No internet connection"
   }
 }
+const reload=()=>window.location.reload()
 
 </script>
 
@@ -34,26 +35,15 @@ function getStatus(){
           <RouterLink to="/home" class="rounded-[5px] hover:bg-gray-300 ">
             <div class="px-6 py-2 text-gray-700 rounded-[5px] bg-gray-300 transition-all" v-if="route.fullPath.includes('/home')">
               <i class="icon pi pi-envelope mr-2"></i>
-              <span>My files</span>
+              <span>AI request</span>
             </div>
             <div class="px-6 py-2 text-gray-500 hover:text-gray-700"  v-else>
               <i class="icon pi pi-envelope mr-2"></i>
-              <span>My files</span>
+              <span>AI request</span>
             </div>
           </RouterLink>
 
-          <RouterLink to="/shared" class="my-1 rounded-[5px] hover:bg-gray-300 hover:text-gray-700">
-            <div class="text-gray-700 rounded-[5px] px-6 bg-gray-300 py-2 transition-all" v-if="route.fullPath.includes('/shared')">
-              <i class="icon pi pi-briefcase mr-2"></i>
-              <span>Shared files</span>
-            </div>
-            <div class="px-6 py-2" v-else>
-              <i class="icon pi pi-briefcase mr-2"></i>
-              <span>Shared files</span>
-            </div>
-          </RouterLink>
-
-          <div @click="router.push(`/users?email=${userdata.email}`)" class="cursor-pointer rounded-[5px] hover:bg-gray-300 hover:text-gray-700">
+          <div @click="router.push(`/users?email=${userdata.email}`)" class="my-1 cursor-pointer rounded-[5px] hover:bg-gray-300 hover:text-gray-700">
             <div class="text-gray-700 rounded-[5px] px-6 bg-gray-300 py-2 transition-all" v-if="route.fullPath===`/users?email=${userdata.email}`">
               <i class="icon pi pi-cog mr-2"></i>
               <span>Settings</span>
@@ -64,7 +54,12 @@ function getStatus(){
             </div>
           </div>
 
-          
+          <div class="fixed bottom-4">
+            <button @click="reload" class="hover:shadow-md text-sm w-[150px] my-5 flex justify-center items-center h-[40px] text-white bg-gray-600 rounded-[5px]">
+              <i class="icon pi pi-times mr-2"></i>
+              <span>Clear screen</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
