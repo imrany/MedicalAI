@@ -1,7 +1,7 @@
 import * as brain from 'brain.js';
 import * as natural from 'natural';
-import data from '../../db/data.json';
-import checker from '../../db/checker.json';
+import data from '../../data/data.json';
+import checker from '../../data/checker.json';
 import request from 'request';
 const network= new brain.recurrent.LSTM();
 const classifier = new natural.BayesClassifier();

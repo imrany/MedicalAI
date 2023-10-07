@@ -1,13 +1,8 @@
 <script lang="ts" setup>
-import { onMounted } from "vue"
 import {useRouter} from "vue-router"
-import { install_function } from ".."
 
 const router=useRouter()
 const year=new Date().getFullYear()
-onMounted(()=>{
-    install_function()
-})
 </script>
 <template>
     <div class="flex flex-col" id="landing_page">

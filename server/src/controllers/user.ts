@@ -8,30 +8,34 @@ export const verifyEmail=async(req:Req,res:any)=>{
     try {
         const email=req.body.email;
         const code=createCode()
-        pool.query('SELECT * FROM users WHERE email = $1', [email], (error, results) => {
-            if (!results.rows[0]) {
-                let mailTranporter=createTransport({
-                    service:'gmail',
-                    auth:{
-                        user:process.env.TRANSPORTER,
-                        pass:process.env.PASSWORD
-                    }
-                });
-                let details:MailDetails={
-                    from:process.env.TRANSPORTER,
-                    to:email,
-                    subject:`Verification Code`,
-                    text:`Your Wekafile One-Time Password (OTP) is \n${code}`
-                }
-                mailTranporter.sendMail(details,(err:any)=>{
-                    if(err){
-                        res.send({error:`Cannot sent verification code, try again!`});
-                    }else{
-                        res.send({code:code})
-                    }
-                })
+        pool.query('SELECT * FROM user_table WHERE email = $1', [email], (error, results) => {
+            if(error){
+                console.log({error:error})
             }else{
-                res.send({error:`Account using ${email} already exist!`})
+                if (!results.rows[0]) {
+                    let mailTranporter=createTransport({
+                        service:'gmail',
+                        auth:{
+                            user:process.env.TRANSPORTER,
+                            pass:process.env.PASSWORD
+                        }
+                    });
+                    let details:MailDetails={
+                        from:process.env.TRANSPORTER,
+                        to:email,
+                        subject:`Verification Code`,
+                        text:`Your Wekafile One-Time Password (OTP) is \n${code}`
+                    }
+                    mailTranporter.sendMail(details,(err:any)=>{
+                        if(err){
+                            res.send({error:`Cannot sent verification code, try again!`});
+                        }else{
+                            res.send({code:code})
+                        }
+                    })
+                }else{
+                    res.send({error:`Account using ${email} already exist!`})
+                }
             }
         })
     } catch (error:any) {

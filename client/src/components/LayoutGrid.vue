@@ -33,34 +33,12 @@ function getStatus(){
         <div class="flex flex-col">
           <RouterLink to="/home" class="rounded-[5px] hover:bg-gray-300 ">
             <div class="px-6 py-2 text-gray-700 rounded-[5px] bg-gray-300 transition-all" v-if="route.fullPath.includes('/home')">
-              <i class="icon pi pi-folder-open mr-2"></i>
+              <i class="icon pi pi-envelope mr-2"></i>
               <span>My files</span>
             </div>
             <div class="px-6 py-2 text-gray-500 hover:text-gray-700"  v-else>
-              <i class="icon pi pi-folder mr-2"></i>
+              <i class="icon pi pi-envelope mr-2"></i>
               <span>My files</span>
-            </div>
-          </RouterLink>
-
-          <RouterLink to="/uploads" class="cursor-pointer my-1 rounded-[5px] hover:bg-gray-300">
-            <div class="text-gray-700 rounded-[5px] px-6 bg-gray-300 py-2 transition-all" v-if="route.fullPath.includes('/uploads')">
-              <i class="icon pi pi-cloud-upload mr-2"></i>
-              <span>My uploads</span>
-            </div>
-            <div class="px-6 py-2" v-else>
-              <i class="icon pi pi-cloud-upload mr-2"></i>
-              <span>My uploads</span>
-            </div>
-          </RouterLink>
-
-          <RouterLink to="/storage" class="cursor-pointer rounded-[5px] hover:bg-gray-300 hover:text-gray-700">
-            <div class="text-gray-700 rounded-[5px] px-6 bg-gray-300 py-2 transition-all" v-if="route.fullPath==='/storage'">
-              <i class="icon pi pi-th-large mr-2"></i>
-              <span>Storage</span>
-            </div>
-            <div class="px-6 py-2" v-else>
-              <i class="icon pi pi-th-large mr-2"></i>
-              <span>Storage</span>
             </div>
           </RouterLink>
 
@@ -86,11 +64,7 @@ function getStatus(){
             </div>
           </div>
 
-          <div class="fixed bottom-4">
-            <button @click="router.push('/upgrade')" class="hover:shadow-md text-sm w-[150px] my-5 flex justify-center items-center h-[40px] text-white bg-gray-600 rounded-[20px]">
-              Get cloud storage
-            </button>
-          </div>
+          
         </div>
       </div>
     </div>
