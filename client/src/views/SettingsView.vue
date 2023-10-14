@@ -5,6 +5,7 @@ import { useRoute, useRouter } from "vue-router";
 import { useToast } from "vue-toast-notification";
 import { loader } from "../index";
 import MobileNav from "../components/ui/MobileNav.vue";
+import doctor from "../assets/images/doctor.png"
 
 const router=useRouter()
 const origin:any=inject("origin")
@@ -51,8 +52,7 @@ async function fetchUserDetails() {
 
 
 const open_profile=()=>{
-    const dialogElement=document.getElementById("profile-dialog") as HTMLDialogElement
-    dialogElement.showModal()
+    window.location.href=doctor
 }
 
 </script>
@@ -65,9 +65,10 @@ const open_profile=()=>{
                 <div class="mt-24 xl:mt-4  pb-7">
                     <div class="flex items-center max-sm:border-b-[1px] lg:mb-5 border-slate-200 pb-4 md:px-8 px-4">
                         <div class="flex cursor-pointer items-center flex-grow">
-                            <div @click="open_profile" class=" w-[65px] h-[65px] rounded-[50px] bg-slate-300 flex justify-center items-center">
+                            <!-- <div class=" w-[65px] h-[65px] rounded-[50px] bg-slate-300 flex justify-center items-center">
                                 <i title="My profile" class="icon pi pi-user text-2xl text-gray-700 max-sm:text-lg"></i>
-                            </div>
+                            </div> -->
+                            <img @click="open_profile" :src="doctor" class="w-[60px] h-[60px] rounded-[50px] object-contain"/>
                             
                             <div class="flex flex-col ml-4 flex-grow" @click="open_profile">
                                 <p>{{data.username}}</p>
@@ -79,7 +80,7 @@ const open_profile=()=>{
 
                     <div @click="router.push('/account')" class="md:px-8 px-4 cursor-pointer hover:bg-slate-200">
                         <div class="px-6 max-sm:px-3 py-4 flex items-center" >
-                            <i class="icon pi pi-key text-xl mr-3"></i>
+                            <i class="icon pi pi-user text-xl mr-3"></i>
                             <p class="flex flex-col">
                                 <span class="max-sm:text-sm">Account</span>
                                 <span class="text-sm max-sm:text-xs text-slate-600">Switch account, Log out, Delete</span>
