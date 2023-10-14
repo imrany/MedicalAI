@@ -6,13 +6,13 @@ const year=new Date().getFullYear()
 </script>
 <template>
     <div class="flex flex-col" id="landing_page">
-        <div class="flex justify-between items-center font-semibold text-gray-700 bg-white pl-6 h-[40px]">
+        <div class="flex justify-between items-center font-semibold text-red-500 bg-white pl-6 h-[40px]">
             <div class="flex items-center">
                 <p class="text-xl ml-2">MedicalAI</p>
             </div>
             <div class="flex items-center font-normal">
                 <RouterLink to="/get_verified" class="text-base w-[100px]">Try now</RouterLink>
-                <RouterLink to="/signin" class="text-base ml-2 bg-gray-700 items-center justify-center flex h-[40px] w-[130px] text-white">
+                <RouterLink to="/signin" class="text-base ml-2 bg-red-500 items-center justify-center flex h-[40px] w-[130px] text-white">
                     <p>Login</p>
                 </RouterLink>
             </div>
@@ -29,9 +29,9 @@ const year=new Date().getFullYear()
                            power of machine learning to give users remedies and advice on their underlining sickness.
                         </p> 
 
-                        <div class="flex justify-between items-center md:w-[35vw] max-md:w-[70vw] max-sm:w-[80vw]">
-                            <button class="md:w-[150px] max-md:w-[120px] max-md:text-sm max-md:h-[40px] bg-white h-[50px]  rounded-[30px] transition-all shadow-sm hover:rounded-[10px] flex justify-center items-center text-gray-800 font-semibold" @click="router.push('/get_verified')">Try it now</button>
-                            <button class="md:w-[150px] max-md:w-[120px] max-md:text-sm max-md:h-[40px] bg-white h-[50px]  rounded-[30px] transition-all shadow-sm hover:rounded-[10px] flex justify-center items-center text-gray-800 font-semibold" @click="router.push('/signin')">Sign in</button>
+                        <div class="flex justify-between items-center md:w-[35vw] max-md:w-[70vw] max-sm:w-[80vw] text-red-500">
+                            <button class="md:w-[150px] max-md:w-[120px] max-md:text-sm max-md:h-[40px] bg-white h-[50px]  rounded-[30px] transition-all shadow-sm hover:rounded-[10px] flex justify-center items-center  font-semibold" @click="router.push('/get_verified')">Try it now</button>
+                            <button class="md:w-[150px] max-md:w-[120px] max-md:text-sm max-md:h-[40px] bg-white h-[50px]  rounded-[30px] transition-all shadow-sm hover:rounded-[10px] flex justify-center items-center  font-semibold" @click="router.push('/signin')">Sign in</button>
                         </div>
                     </div>
                 </div>
@@ -39,14 +39,14 @@ const year=new Date().getFullYear()
             </div>
         </div>
         <div class="flex flex-col items-center justify-center p-10 max-md:border-b-[1px]">
-            <div style="line-height:25px;" class="mt-6 grid lg:grid-cols-3 gap-10 md:grid-cols-2 max-md:grid-cols-1 text-base text-gray-700 ">
+            <div style="line-height:25px;" class="mt-6 grid lg:grid-cols-3 gap-10 md:grid-cols-2 max-md:grid-cols-1 text-base  ">
                <div class="text-2xl max-md:text-lg md:font-semibold">
                     <p>Get an account and get a more personalized experience.</p>
-                    <RouterLink to="/get_verified" class="text-lg max-md:text-sm font-normal underline text-gray-700">Get started now</RouterLink>
+                    <RouterLink to="/get_verified" class="text-lg max-md:text-sm font-normal underline ">Get started now</RouterLink>
                </div>
                <div class="text-2xl max-md:text-lg md:font-semibold">
                     <p>Get an account and get a more personalized experience.</p>
-                    <RouterLink to="/" class="text-lg max-md:text-sm font-normal underline text-gray-700">Learn more</RouterLink>
+                    <RouterLink to="/" class="text-lg max-md:text-sm font-normal underline ">Learn more</RouterLink>
                </div>
                <div class="text-2xl max-md:text-lg md:font-semibold">
                     <p>Get an account and get a more personalized experience.</p>
@@ -56,7 +56,7 @@ const year=new Date().getFullYear()
         </div>
 
         <div class="flex flex-col items-center justify-center p-10">
-            <div style="line-height:25px;" class="mt-6 grid lg:grid-cols-3 gap-10 md:grid-cols-2 max-md:grid-cols-1 text-base text-gray-700 ">
+            <div style="line-height:25px;" class="mt-6 grid lg:grid-cols-3 gap-10 md:grid-cols-2 max-md:grid-cols-1 text-base  ">
                <div class="text-2xl max-md:text-lg md:font-semibold">
                     <p>Get an account and get a more personalized experience.</p>
                     <RouterLink to="" class="text-lg max-md:text-sm font-normal underline">Learn more</RouterLink>
@@ -72,7 +72,7 @@ const year=new Date().getFullYear()
             </div>
         </div>
 
-        <footer class="flex max-md:flex-col p-10 mt-10 bg-gray-800 md:justify-between text-white md:items-center">
+        <footer class="flex max-md:flex-col p-10 mt-10 bg-red-500 md:justify-between text-white md:items-center">
             <div class="">
                 <p class="text-2xl font-semibold"><i class="icon pi pi-link mr-1"></i>Quick links</p>
                 <ul class="my-3">

@@ -25,7 +25,7 @@ dialog[open]{
     display: none;
 }
 .hero-image{
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url('./images/download.gif') no-repeat center;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url('./images/Health-insurance.avif') no-repeat center;
     background-size: cover;
     height: 100vh;
 }
