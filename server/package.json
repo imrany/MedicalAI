@@ -24,6 +24,7 @@
     "@types/jsonwebtoken": "^9.0.2",
     "@types/node": "^18.15.13",
     "@types/nodemailer": "^6.4.9",
+    "@types/request": "^2.48.10",
     "nodemon": "^3.0.1",
     "typescript": "^5.0.4"
   },

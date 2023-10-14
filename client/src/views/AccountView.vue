@@ -31,7 +31,7 @@ const name=!userdata.username?``:`account`
            <div class="flex flex-col pb-8">
                 <MobileNav :title="title"/>
                 <DesktopNav :title="title"/>
-                <div class="max-xl:mt-20 pb-7">
+                <div class="max-xl:mt-20 pb-7 bg-white min-h-[100vh]">
                     <div @click="logout" class="md:px-8 px-4 cursor-pointer hover:bg-yellow-200">
                         <div class="px-6 max-sm:px-3 py-4 flex items-center" >
                             <i class="icon text-gray-800 pi pi-exclamation-circle text-xl mr-3"></i>

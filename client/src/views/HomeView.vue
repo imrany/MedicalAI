@@ -3,6 +3,8 @@
     import { inject, ref } from "vue";
     import { useToast } from "vue-toast-notification";
     import doctor from "../assets/images/doctor.png"
+    import health from "../assets/images/Health-insurance.avif"
+    import resize from "../assets/images/resize.jpeg"
 
     const toast=useToast()
     const userdata:any=inject('userdata')
@@ -36,10 +38,10 @@
                 let i=``;
                 let data=JSON.parse(parseRes.ans);
                     i=`
-                    <div class="bg-gray-200 mb-3 flex flex-col px-4 py-5 text-gray-800">
+                    <div class="bg-gray-50 mb-3 flex flex-col px-4 py-5 text-gray-800">
                         <div class="flex items-center">
                             <img src="${doctor}" class="mr-2 w-[45px] h-[45px] object-fit rounded-[50px]"/>
-                            <p class="text-base">${userdata.username}</p>
+                            <p class="text-base font-semibold">${userdata.username}</p>
                         </div>
                         <div class="my-4">
                             <div class='text' title="${request} 's response">
@@ -134,10 +136,19 @@
                         </div>
                     </div>
                 </div>
+
+                <p class="max-md:text-lg text-2xl mb-2 mt-7 text-gray-700 font-semibold">Our Team</p>
+                <div class="bg-white shadow-sm shadow-slate-300 rounded-md flex items-center px-4 py-2 w-fit font-semibold text-gray-800">
+                    <img :src="doctor" class=" w-[40px] h-[40px] object-fit rounded-[50px] mr-2"/>
+                    <img :src="doctor" class=" w-[40px] h-[40px] object-fit rounded-[50px] mr-2"/>
+                    <img :src="doctor" class=" w-[40px] h-[40px] object-fit rounded-[50px] mr-2"/>
+                    <img :src="health" class=" w-[40px] h-[40px] object-fit rounded-[50px] mr-2"/>
+                    <img :src="resize" class=" w-[40px] h-[40px] object-fit rounded-[50px] mr-2"/>
+                    +5
+                </div>
             </div>
 
             <div class="mb-[100px]" id="response">
-               
             </div>
            <form @submit="handleSubmit" class="fixed bottom-0 w-full xl:ml-[15%] xl:w-[85%] right-0 px-4 py-3 h-[75px] bg-white">
             <div class="flex">

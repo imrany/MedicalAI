@@ -60,7 +60,7 @@ const open_profile=()=>{
 <template>
     <LayoutGrid>
         <template #grid-2>
-           <div class="flex flex-col pb-8 pt-4">
+           <div class="flex flex-col pb-8 pt-4 bg-white min-h-[100vh]">
                 <MobileNav :title="title"/>
                 <div class="mt-24 xl:mt-4  pb-7">
                     <div class="flex items-center max-sm:border-b-[1px] lg:mb-5 border-slate-200 pb-4 md:px-8 px-4">

@@ -24,7 +24,7 @@ export async function ask(req:any,res:any){
     try {
         const {prompt}=req.body;
         const checkedData:any = classifier.classify(prompt);
-        if(checkedData===1){
+        if(checkedData==1){
             const output=network.run(prompt);
             //google search the output
             let options = {
@@ -44,7 +44,7 @@ export async function ask(req:any,res:any){
             };
             request(options, (error:any, response:any) => {
                 if (error) {
-                    res.status(404).send({msg:error.message})
+                    res.status(404).send({error:error.message})
                 }else{
                     res.status(200).send({
                         msg:output,
@@ -58,9 +58,9 @@ export async function ask(req:any,res:any){
             })
         }
        
-    } catch (error) {
+    } catch (error:any) {
         console.log(error.message)
-        res.status(400).send({
+        res.status(500).send({
             error:error.message,
         })
     }
