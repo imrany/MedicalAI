@@ -6,13 +6,13 @@ const year=new Date().getFullYear()
 </script>
 <template>
     <div class="flex flex-col" id="landing_page">
-        <div class="flex justify-between items-center font-semibold text-red-500 bg-white pl-6 h-[40px]">
+        <div class="flex justify-between items-center font-semibold text-blue-500 bg-white pl-6 h-[40px]">
             <div class="flex items-center">
                 <p class="text-xl ml-2">MedicalAI</p>
             </div>
             <div class="flex items-center font-normal">
                 <RouterLink to="/get_verified" class="text-base w-[100px]">Try now</RouterLink>
-                <RouterLink to="/signin" class="text-base ml-2 bg-red-500 items-center justify-center flex h-[40px] w-[130px] text-white">
+                <RouterLink to="/signin" class="text-base ml-2 bg-blue-500 items-center justify-center flex h-[40px] w-[130px] text-white">
                     <p>Login</p>
                 </RouterLink>
             </div>
@@ -29,7 +29,7 @@ const year=new Date().getFullYear()
                            power of machine learning to give users remedies and advice on their underlining sickness.
                         </p> 
 
-                        <div class="flex justify-between items-center md:w-[35vw] max-md:w-[70vw] max-sm:w-[80vw] text-red-500">
+                        <div class="flex justify-between items-center md:w-[35vw] max-md:w-[70vw] max-sm:w-[80vw] text-blue-500">
                             <button class="md:w-[150px] max-md:w-[120px] max-md:text-sm max-md:h-[40px] bg-white h-[50px]  rounded-[30px] transition-all shadow-sm hover:rounded-[10px] flex justify-center items-center  font-semibold" @click="router.push('/get_verified')">Try it now</button>
                             <button class="md:w-[150px] max-md:w-[120px] max-md:text-sm max-md:h-[40px] bg-white h-[50px]  rounded-[30px] transition-all shadow-sm hover:rounded-[10px] flex justify-center items-center  font-semibold" @click="router.push('/signin')">Sign in</button>
                         </div>
@@ -72,7 +72,7 @@ const year=new Date().getFullYear()
             </div>
         </div>
 
-        <footer class="flex max-md:flex-col p-10 mt-10 bg-red-500 md:justify-between text-white md:items-center">
+        <footer class="flex max-md:flex-col p-10 mt-10 bg-blue-500 md:justify-between text-white md:items-center">
             <div class="">
                 <p class="text-2xl font-semibold"><i class="icon pi pi-link mr-1"></i>Quick links</p>
                 <ul class="my-3">

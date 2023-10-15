@@ -6,7 +6,7 @@ import { useToast } from "vue-toast-notification";
 const toast=useToast()
 const isLoading=ref(false)
 const origin:any=inject("origin")
-const wait=ref("bg-gray-600")
+const wait=ref("bg-blue-500")
 const router=useRouter()
 const error =ref("")
 
@@ -32,7 +32,7 @@ async function handleVerify(e:any){
                 duration:5000
             })
             isLoading.value=false
-            wait.value="cursor-pointer bg-gray-600"
+            wait.value="cursor-pointer bg-blue-500"
             error.value=parseRes.error
         }else if(parseRes.code){
             sessionStorage.setItem("OTP",parseRes.code)
@@ -41,7 +41,7 @@ async function handleVerify(e:any){
         e.target.reset()
     } catch (error:any) {
         isLoading.value=false
-        wait.value="cursor-pointer bg-gray-600"
+        wait.value="cursor-pointer bg-blue-500"
         error.value=error.message
         e.target.reset()
     }
@@ -56,9 +56,9 @@ async function handleVerify(e:any){
                 <div class="flex flex-col w-full my-4 max-sm:my-2">
                     <p class="text-sm text-gray-600"><i class="icon pi pi-shield mr-1"></i>Get started by verifying your email</p>
                     <form class="flex flex-col items-center" @submit="handleVerify">
-                        <input type="email" name="email" class="mt-2 border-gray-500 placeholder:text-gray-600 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-gray-600 w-[100%] py-2 px-4 placeholder:text-sm text-sm" placeholder="Enter your email" required/>
+                        <input type="email" name="email" class="mt-2 border-gray-500 placeholder:text-gray-600 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-blue-500 w-[100%] py-2 px-4 placeholder:text-sm text-sm" placeholder="Enter your email" required/>
                         <div class="flex justify-between w-full font-semibold max-md:text-sm max-md:gap-4">
-                            <button type="button" @click="router.back()" to="/" class="flex my-3 mt-6 justify-center items-center rounded-[50px] h-[40px] max-sm:h-[35px] max-sm:w-[120px] w-[150px] border-[1px] border-gray-300 text-black">
+                            <button type="button" @click="router.back()" to="/" class="flex my-3 mt-6 justify-center items-center rounded-[50px] h-[40px] max-sm:h-[35px] max-sm:w-[120px] w-[150px] border-[1px] border-blue-500 text-black">
                                 Back
                             </button>
                             <button :class="wait" :disabled="isLoading" class="w-[150px] flex my-3 mt-6 justify-center items-center rounded-[50px] h-[40px] max-sm:h-[35px] max-sm:w-[120px] text-white">
@@ -66,7 +66,7 @@ async function handleVerify(e:any){
                             </button>
                         </div>
                     </form>
-                    <div @click="router.push('/signin')" class="text-gray-600 font-semibold mt-4 text-center text-sm max-sm:text-xs cursor-pointer" title="Sign in">I have an account?</div>
+                    <div @click="router.push('/signin')" class="text-blue-500 font-semibold mt-4 text-center text-sm max-sm:text-xs cursor-pointer" title="Sign in">I have an account?</div>
                 </div>
             </div>
         </div>
