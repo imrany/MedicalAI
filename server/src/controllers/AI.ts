@@ -1,21 +1,27 @@
 import * as brain from 'brain.js';
-import * as natural from 'natural';
 import data from '../../data/data.json';
 import checker from '../../data/checker.json';
 import request from 'request';
 const network= new brain.recurrent.LSTM();
-const classifier = new natural.BayesClassifier();
+const network2= new brain.recurrent.LSTM();
 
-//Training checker data
-checker.forEach((data:any) => classifier.addDocument(data.sign, data.output));
-classifier.train();;
-
-//training health data
+//mapping data into input and output
+const checkData=checker.map(item=>({
+    input: item.sign,
+    output: item.output
+}));
 const trainingData=data.map(item=>({
     input: item.signs,
     output: item.sickness
 }));
+
+
+//training data
 network.train(trainingData,{
+    iterations:100,
+    errorThresh: 0.01 
+});
+network2.train(checkData,{
     iterations:100,
     errorThresh: 0.01 
 });
@@ -23,7 +29,7 @@ network.train(trainingData,{
 export async function ask(req:any,res:any){
     try {
         const {prompt}=req.body;
-        const checkedData:any = classifier.classify(prompt);
+        const checkedData:any = network2.run(prompt);
         if(checkedData==1){
             const output=network.run(prompt);
             //google search the output
