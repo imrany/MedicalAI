@@ -5,14 +5,17 @@
     import doctor from "../assets/images/doctor.png"
     import health from "../assets/images/Health-insurance.avif"
     import resize from "../assets/images/resize.jpeg"
+    import { loader } from "../index"
 
     const toast=useToast()
     const userdata:any=inject('userdata')
     const origin:any=inject('origin')
     const showGrid=ref(true)
+    const error=ref('')
     async function handleSubmit(e:any) {
         e.preventDefault()
         try {
+            loader.on()
             const request=e.target.request.value
             showGrid.value=false
             const url=`${origin}/api/request`;
@@ -33,6 +36,8 @@
                     duration:1500,
                     position:'top-right'
                 })
+                loader.off()
+                error.value=parseRes.error
             }else{
                 const textResponse=document.querySelector('#response') as HTMLDivElement;
                 let i=``;
@@ -77,14 +82,17 @@
                     textResponse.innerHTML+=i
                     const bottom=document.querySelector('#bottom') as HTMLDivElement
                     bottom.scrollIntoView()
+                    loader.off()
             }
         } catch (error:any) {
             console.log(error)
             showGrid.value=true
+            loader.off()
             toast.error(error.message,{
                 duration:1500,
                 position:'top-right'
             })
+            error.value=error.message
         }
     }
 
@@ -150,6 +158,13 @@
 
             <div class="mb-[100px]" id="response">
             </div>
+
+            <div v-if="error" class="flex items-center justify-center w-full">
+                <div class="flex items-center h-[50px] text-sm px-4 rounded-[10px] border-[1px] border-red-600 bg-red-100 text-red-600">
+                    <p>Error: {{ error }}</p>
+                </div>
+            </div>
+            
            <form @submit="handleSubmit" class="fixed bottom-0 w-full xl:ml-[15%] xl:w-[85%] right-0 px-4 py-3 h-[75px] bg-white">
             <div class="flex">
                 <input type="text" name="request" id="request" class="text-black border-blue-400 border-[1px] py-1 placeholder:text-black px-2 w-[92%] rounded-md outline-none" placeholder="Enter signs and symptoms" required/>
