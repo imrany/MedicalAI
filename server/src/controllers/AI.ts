@@ -60,7 +60,7 @@ export async function ask(req:any,res:any){
             });
         }else{
             res.status(400).send({
-                error:"Cannot generate response!",
+                error:"This is not a medical related input, try again!!",
             })
         }
        
