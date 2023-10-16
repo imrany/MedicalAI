@@ -1,8 +1,28 @@
 <script lang="ts" setup>
 import {useRouter} from "vue-router"
+import doctor from "../assets/images/doctor.png"
+import health from "../assets/images/Health-insurance.avif"
+import resize from "../assets/images/resize.jpeg"
 
 const router=useRouter()
 const year=new Date().getFullYear()
+const todos=[
+    {
+        description:`
+        Prompt using common medical signs and symptoms of illnesses e.g headache, coughing, stomache...etc
+        `
+    },
+    {
+        description:`
+        Avoid non-medical prompts and unusually signs this would not generate response or result to an error.
+        `
+    },
+    {
+        description:`
+        Use short, precise and quick prompts for a better response. This would help you get correct responses.
+        `
+    }
+]
 </script>
 <template>
     <div class="flex flex-col" id="landing_page">
@@ -38,7 +58,46 @@ const year=new Date().getFullYear()
                 
             </div>
         </div>
-        <div class="flex flex-col items-center justify-center p-10 max-md:border-b-[1px]">
+
+        <div class="py-12 bg-blue-100 px-10">
+            <p class="max-md:text-lg text-2xl mb-4 text-gray-700 font-semibold">How medicalAI works?</p>
+            <div class="grid grid-cols-3 mb-3 max-md:grid-cols-1 gap-3">
+                <div class="bg-white shadow-md shadow-slate-300 rounded-md flex justify-center items-center px-4 py-5 text-gray-800">
+                    <p>Leveraging the power of machine learning, MedicalAI can take your requests and predict the possible cause.</p>
+                </div>
+                <div class="bg-white shadow-md shadow-slate-300 rounded-md flex justify-center items-center px-4 py-5 text-gray-800">
+    
+                    <p>MedicalAI would provide your with almost accurate medical remedies and preventative measures.</p>
+                </div>
+                <div class="bg-white shadow-md shadow-slate-300 rounded-md flex justify-center items-center px-4 py-5 text-gray-800">
+                    <p>Get help and assistance concerning any medical related request, we serve your requests.</p>
+                </div>
+            </div>
+
+            <p class="max-md:text-lg text-2xl mb-2 mt-7 text-gray-700 font-semibold">What to do?</p>
+            <div class="grid grid-cols-3 max-md:grid-cols-1 gap-3">
+                <div v-for="(item,index) in todos" :key="index" class="bg-green-400 shadow-sm shadow-slate-300 rounded-md flex flex-col text-gray-800">
+                    <div class="px-4 py-2">
+                        <p  class="text-lg font-semibold">To-do</p>
+                    </div>
+                    <div class="px-4 py-2  rounded-md bg-white">
+                        <p class="">{{ item.description }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="max-md:text-lg text-2xl mb-2 mt-7 text-gray-700 font-semibold">Our Team</p>
+            <div class="bg-white shadow-sm shadow-slate-300 rounded-md flex items-center px-4 py-2 w-fit font-semibold text-gray-800">
+                <img :src="doctor" class=" w-[40px] h-[40px] object-fit rounded-[50px] mr-2"/>
+                <img :src="doctor" class=" w-[40px] h-[40px] object-fit rounded-[50px] mr-2"/>
+                <img :src="doctor" class=" w-[40px] h-[40px] object-fit rounded-[50px] mr-2"/>
+                <img :src="health" class=" w-[40px] h-[40px] object-fit rounded-[50px] mr-2"/>
+                <img :src="resize" class=" w-[40px] h-[40px] object-fit rounded-[50px] mr-2"/>
+                +5
+            </div>
+        </div>
+
+        <div :class="`flex flex-col items-center h-[60vh] justify-center bg-white text-gray-700 bg-center bg-no-repeat bg-cover px-10 py-24 border-t-[1px]`">
             <div style="line-height:25px;" class="mt-6 grid lg:grid-cols-3 gap-10 md:grid-cols-2 max-md:grid-cols-1 text-base  ">
                <div class="text-2xl max-md:text-lg md:font-semibold">
                     <p>Get an account and get a more personalized experience.</p>
@@ -55,24 +114,7 @@ const year=new Date().getFullYear()
             </div>
         </div>
 
-        <div class="flex flex-col items-center justify-center p-10">
-            <div style="line-height:25px;" class="mt-6 grid lg:grid-cols-3 gap-10 md:grid-cols-2 max-md:grid-cols-1 text-base  ">
-               <div class="text-2xl max-md:text-lg md:font-semibold">
-                    <p>Get an account and get a more personalized experience.</p>
-                    <RouterLink to="" class="text-lg max-md:text-sm font-normal underline">Learn more</RouterLink>
-               </div>
-               <div class="text-2xl max-md:text-lg md:font-semibold">
-                    <p>Get an account and get a more personalized experience.</p>
-                    <RouterLink to="" class="text-lg max-md:text-sm font-normal underline">Learn more</RouterLink>
-               </div>
-               <div class="text-2xl max-md:text-lg md:font-semibold">
-                    <p>Get an account and get a more personalized experience.</p>
-                    <RouterLink to="" class="text-lg max-md:text-sm font-normal underline">Learn more</RouterLink>
-               </div>
-            </div>
-        </div>
-
-        <footer class="flex max-md:flex-col p-10 mt-10 bg-blue-500 md:justify-between text-white md:items-center">
+        <footer class="flex max-md:flex-col p-10 pt-10 bg-blue-500 md:justify-between text-white md:items-center">
             <div class="">
                 <p class="text-2xl font-semibold"><i class="icon pi pi-link mr-1"></i>Quick links</p>
                 <ul class="my-3">
