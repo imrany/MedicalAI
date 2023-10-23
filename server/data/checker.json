@@ -38,5 +38,9 @@
     {
         "sign":"coughing",
         "output":1
+    },
+    {
+        "sign":"car",
+        "output":0
     }
 ]
