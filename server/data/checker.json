@@ -36,11 +36,19 @@
         "output":1
     },
     {
-        "sign":"coughing",
+        "sign":"backache, coughing",
+        "output":1
+    },
+    {
+        "sign":"cancer",
         "output":1
     },
     {
         "sign":"car",
+        "output":0
+    },
+    {
+        "sign":"food",
         "output":0
     }
 ]
