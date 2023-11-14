@@ -42,7 +42,8 @@
                 const textResponse=document.querySelector('#response') as HTMLDivElement;
                 let i=``;
                 let data=JSON.parse(parseRes.ans);
-                console.log(data)
+                console.log(data.answerBox)
+                let text=`${data.answerBox.snippet.replaceAll('\n','<br/>')}`
                     i=`
                     <div class="bg-gray-50 mb-3 flex flex-col px-4 py-5 text-gray-800">
                         <div class="flex items-center">
@@ -51,28 +52,9 @@
                         </div>
                         <div class="my-4">
                             <div class='text' title="${request} 's response">
-                                <div key=${data.organic[0].position}>
-                                    <p>${data.organic[0].title}</p>
-                                    <p>${data.organic[0].snippet}</p>
-                                    <a class="text-blue-500" href=${data.organic[0].link} target='_blank' rel='noreferrer'>View more...</a><br/>
-                                    <br/>
-                                </div>
-                                <div key=${data.organic[1].position}>
-                                    <p>${data.organic[1].title}</p>
-                                    <p>${data.organic[1].snippet}</p>
-                                    <a class="text-blue-500" href=${data.organic[1].link} target='_blank' rel='noreferrer'>View more...</a><br/>
-                                    <br/>
-                                </div>
-                                <div key=${data.organic[2].position}>
-                                    <p>${data.organic[2].title}</p>
-                                    <p>${data.organic[2].snippet}</p>
-                                    <a class="text-blue-500" href=${data.organic[2].link} target='_blank' rel='noreferrer'>View more...</a><br/>
-                                    <br/>
-                                </div>
-                                <div key=${data.organic[3].position}>
-                                    <p>${data.organic[3].title}</p>
-                                    <p>${data.organic[3].snippet}</p>
-                                    <a class="text-blue-500" href=${data.organic[3].link} target='_blank' rel='noreferrer'>View more...</a><br/>
+                                <div key=${data.answerBox.title}>
+                                    <p>${text}</p>
+                                    <a class="text-blue-500" href=${data.answerBox.link} target='_blank' rel='noreferrer'>More information...</a><br/>
                                     <br/>
                                 </div>
                             </div>
