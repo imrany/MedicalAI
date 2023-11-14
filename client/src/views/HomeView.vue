@@ -48,7 +48,7 @@
                     <div class="bg-gray-50 mb-3 flex flex-col px-4 py-5 text-gray-800">
                         <div class="flex items-center">
                             <img src="${doctor}" class="mr-2 w-[45px] h-[45px] object-fit rounded-[50px]"/>
-                            <p class="text-base font-semibold">${userdata.username}</p>
+                            <p class="text-base font-semibold">${userdata.username} - ${request}</p>
                         </div>
                         <div class="my-4">
                             <div class='text' title="${request} 's response">
