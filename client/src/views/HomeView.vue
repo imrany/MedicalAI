@@ -33,7 +33,7 @@
             const parseRes=await response.json();
             if(parseRes.error){
                 toast.error(parseRes.error,{
-                    duration:1500,
+                    duration:3000,
                     position:'top-right'
                 })
                 loader.off()
@@ -42,6 +42,7 @@
                 const textResponse=document.querySelector('#response') as HTMLDivElement;
                 let i=``;
                 let data=JSON.parse(parseRes.ans);
+                console.log(data)
                     i=`
                     <div class="bg-gray-50 mb-3 flex flex-col px-4 py-5 text-gray-800">
                         <div class="flex items-center">
@@ -89,7 +90,7 @@
             showGrid.value=true
             loader.off()
             toast.error(error.message,{
-                duration:1500,
+                duration:3000,
                 position:'top-right'
             })
             error.value=error.message
@@ -160,8 +161,8 @@
             </div>
 
             <div v-if="error" class="flex items-center justify-center w-full">
-                <div class="flex items-center h-[50px] text-sm px-4 rounded-[10px] border-[1px] border-red-600 bg-red-100 text-red-600">
-                    <p>Error: {{ error }}</p>
+                <div class="flex items-center justify-center h-[50px] w-[50vw] text-sm px-4 rounded-[10px] border-[1px] border-red-600 bg-red-100 text-black">
+                    <p>{{ error }}</p>
                 </div>
             </div>
             
