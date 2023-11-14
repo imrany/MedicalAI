@@ -83,7 +83,11 @@ export const loginUser=async(req:Req,res:any)=>{
                     res.status(400).send({error:'Failed to sign in, try again!'})
                 }else{
                     if(results.rows[0]){
-                        if (results.rows[0].email&&await compare(password,results.rows[0].password)) {
+                        if(results.rows[0].email!==email){
+                            res.status(401).send({error:'You have enter the wrong email'})
+                        }else if(await compare(password,results.rows[0].password)===false){
+                            res.status(401).send({error:'You have enter the wrong password'})
+                        }else  if (results.rows[0].email&&await compare(password,results.rows[0].password)) {
                             res.status(201).send({
                                 msg:`Welcome ${results.rows[0].username}`,
                                 data:{
@@ -94,9 +98,7 @@ export const loginUser=async(req:Req,res:any)=>{
                                     token:generateUserToken(results.rows[0].id)
                                 }
                             })
-                        } else {
-                            res.status(401).send({error:'Invalid Credentials'})
-                        }
+                        } 
                     }else{
                         res.status(404).send({error:`Account associated with email ${email} does not exist!`})
                     }

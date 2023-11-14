@@ -41,7 +41,7 @@ export async function ask(req:any,res:any){
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    "q": prompt,
+                    "q": `How to treat ${prompt}`,
                     "gl": "us",
                     "hl": "en",
                     "autocorrect": true
@@ -50,7 +50,8 @@ export async function ask(req:any,res:any){
             };
             request(options, (error:any, response:any) => {
                 if (error) {
-                    res.status(404).send({error:error.message})
+                    console.log(error.message)
+                    res.status(404).send({error:"No internet"})
                 }else{
                     res.status(200).send({
                         msg:output,
@@ -60,7 +61,7 @@ export async function ask(req:any,res:any){
             });
         }else{
             res.status(400).send({
-                error:"This is not a medical related input, try again!!",
+                error:"Try entering illness sign or symptom",
             })
         }
        
